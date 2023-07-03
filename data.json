@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "nombre": "Alimento cachorro",
+        "imagen": "./img/alimento_cachorro.jpg",
+        "precio": 1000
+    },
+    {
+        "id": 2,
+        "nombre": "Alimento cat",
+        "imagen": "./img/alimento-cat.jpg",
+        "precio": 1500
+    },
+    {
+        "id": 3,
+        "nombre": "Dog chow",
+        "imagen": "./img/dog-chow-min.jpg",
+        "precio": 1200
+    },
+    {
+        "id": 4,
+        "nombre": "Eukanuva",
+        "imagen": "./img/Gato-Adulto-min.jpg",
+        "precio": 1500
+    },
+    {
+        "id": 5,
+        "nombre": "Gato adulto",
+        "imagen": "./img/pedigree.jpg",
+        "precio": 2000
+    },
+    {
+        "id": 6,
+        "nombre": "Raza",
+        "imagen": "./img/raza-min.jpg",
+        "precio": 1700
+    }
+]
