@@ -1,14 +1,21 @@
 let contenedorDeAlimentos = document.getElementById("contenedorDeAlimentos");
 
-fetch('/data.json')
+let producto =[]
+
+fetch('./data.json')
 
 .then((res) => res.json())
 
 .then((data) => {
-
+    
     data.forEach((producto) =>{
+
+        data.json = producto
+        
         const contenedor = document.createElement ('div')
+
         contenedor.innerHTML = `
+
         <div class="col">
         <div class="card h-50">
             <img src="${producto.imagen}" class="card-img-top" alt="...">
@@ -24,42 +31,71 @@ fetch('/data.json')
             </div>
          </div>
         
-        `
+        `;
         contenedorDeAlimentos.append(contenedor);
 
-    })
 
+        // const botonDeCompras = document.querySelectorAll(".btn");
+
+        const botonCompra = contenedor.querySelector('.btn');
+
+        botonCompra.addEventListener(
+            'click', ()=>{
+                agregarPedido(producto.nombre);
+            });
+
+        const productosLs = localStorage.getItem('misProductos');
+        let productos = [];
+        if (productosLs){
+            productos = JSON.parse(productosLs);
+        }
+        productos.push(producto);
+        localStorage.setItem('misProductos',JSON.stringify(productos));
+        
+    });
+       
+    
+        // boton.addEventListener("click", agregarPedido)
+
+        //  botonDeCompras.forEach((boton)=>{
+        
+        
+        
+    
+    function agregarPedido(nombreProducto){
+    
+        Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: 'Agregado',
+          showConfirmButton: false,
+          timer: 1000
+          })
+      console.log("producto agregado", nombreProducto);
+      
+      const ProductosLs = localStorage.getItem('misProductos');
+
+      const productos = JSON.parse();
+
+      console.log ("productos guardados",productos)
+    
+    }
+    
 })
 
 
-const botonDeCompras = document.querySelectorAll(".btn")
+    // const arrayCadena = JSON.stringify(producto);
+    
+    // localStorage.setItem('misProductos', arrayCadena); 
+    
+    // const ProductosLs = localStorage.getItem('misProductos');
+    
+    // const arrayObjetos = JSON.parse(ProductosLs);
 
-botonDeCompras.forEach((boton)=>{
 
-boton.addEventListener("click", agregarPedido)
+    
 
-});
 
-function agregarPedido(){
-
-  console.log(agregado)
-
-  Swal.fire({
-    position: 'top-center',
-    icon: 'success',
-    title: 'Agregado',
-    showConfirmButton: false,
-    timer: 1000
-
-  })
-}
-const arrayCadena = JSON.stringify(producto.nombre);
-
-localStorage.setItem('misProductos', arrayCadena); 
-
-const ProductosLs = localStorage.getItem('misProductos');
-
-const arrayObjetos = JSON.parse(ProductosLs);
 
 
 /*como sumar los productos, recorre el array 
