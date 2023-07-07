@@ -1,6 +1,7 @@
 let contenedorDeAlimentos = document.getElementById("contenedorDeAlimentos");
 
-let producto =[]
+
+// let producto =[]
 
 fetch('./data.json')
 
@@ -10,7 +11,7 @@ fetch('./data.json')
     
     data.forEach((producto) =>{
 
-        data.json = producto
+        // data.json = producto
         
         const contenedor = document.createElement ('div')
 
@@ -21,6 +22,7 @@ fetch('./data.json')
             <img src="${producto.imagen}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${producto.nombre}</h5>
+                <h6>${producto.precio}$</h6>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                     additional content. This card has even longer content than the first to show that equal height
                     action.</p>
@@ -32,35 +34,35 @@ fetch('./data.json')
          </div>
         
         `;
+
         contenedorDeAlimentos.append(contenedor);
 
-
-        // const botonDeCompras = document.querySelectorAll(".btn");
-
         const botonCompra = contenedor.querySelector('.btn');
-
+      
         botonCompra.addEventListener(
+
             'click', ()=>{
+
                 agregarPedido(producto.nombre);
+                
             });
 
         const productosLs = localStorage.getItem('misProductos');
+
         let productos = [];
+
         if (productosLs){
+
             productos = JSON.parse(productosLs);
+
         }
         productos.push(producto);
+
         localStorage.setItem('misProductos',JSON.stringify(productos));
         
     });
        
     
-        // boton.addEventListener("click", agregarPedido)
-
-        //  botonDeCompras.forEach((boton)=>{
-        
-        
-        
     
     function agregarPedido(nombreProducto){
     
@@ -71,119 +73,65 @@ fetch('./data.json')
           showConfirmButton: false,
           timer: 1000
           })
-      console.log("producto agregado", nombreProducto);
+
+
+      console.log("producto agregado: ", nombreProducto);
       
-      const ProductosLs = localStorage.getItem('misProductos');
+    }
+      
+    })
+    
+    
 
-      const productos = JSON.parse();
+     /**********Baños*********/
 
-      console.log ("productos guardados",productos)
+   const perroChico = 2000;
+
+   const perroMediano =3000;
+   
+   const perroGrande = 4000;
+
+  
+   
+   function cargarDatos(){
+       
+    const trabajoBaño = [];      
+
+    const BañoProducto = document.getElementById ("baño-producto");
+
+    let formSelect = document.getElementById ("formSelect");
+
+    let tamanio = formSelect.value;
+    
+     trabajoBaño.push (tamanio);
+   
+
+    tamanio == "Perro grande" &&  Swal.fire( 'Gracias por elegirnos!', "El precio es " +"$ "+ perroGrande,'success');
+    tamanio == "Perro mediano" &&  Swal.fire( 'Gracias por elegirnos!', "El precio es " +"$ "+ perroMediano,'success');
+    tamanio == "Perro chico" &&  Swal.fire( 'Gracias por elegirnos!', "El precio es " +"$ "+ perroChico,'success');
+
+
+    
+    for (let dato of trabajoBaño) {
+
+       let datoParrafo = document.createElement ('h4');
+
+        datoParrafo.innerHTML = dato;
+
+        BañoProducto.appendChild(datoParrafo);
     
     }
-    
-})
+         BañoProducto.style.backgroundColor="yellow";
 
-
-    // const arrayCadena = JSON.stringify(producto);
-    
-    // localStorage.setItem('misProductos', arrayCadena); 
-    
-    // const ProductosLs = localStorage.getItem('misProductos');
-    
-    // const arrayObjetos = JSON.parse(ProductosLs);
-
-
-    
+ }
 
 
 
 
-/*como sumar los productos, recorre el array 
-y hace una suma retornando el resultado*/
-
-// const totalProductos = productos.reduce((acumulador, producto)=> acumulador + producto.precio, 0);
-// console.log(totalProductos);
-
-// /** For of para mosrar los productos  */
-
-// let lista = document.createElement("ul")
-// let contenido = document.getElementsByClassName(".contenido")
-
-// for(producto of productos){
-
-//     lista.innerHTML += `<li class= "lista-item">${producto}</li> `
-//     contenido.append(lista);
-// }
 
 
+ 
 
 
-// const nombre = "Diego";
-
-//  localStorage.setItem('nombreUsuario', nombre )
-
-
-// let boton = document.getElementById("modoNegro");
-
-// boton.addEventListener("click", cambiarColor)
-
-// function cambiarColor(){
-    
-//     modoNegro.innerHTML = "hola"
-    
-//     console.log("color cambiado")
-    
-// };
-// const cambioNombre = document.getElementById ("cambioNombre")
-// const compraSegura = document.getElementById ("botonCompra")
-
-// compraSegura.addEventListener ("click", elementoComprado )
-
-// function elementoComprado(){
-
-//     alert('elemento comprado')
-
-//     localStorage.setItem("compra", productos)
-
-//     const productosJason = JSON.stringify(productos)
-
-//     localStorage.setItem("compra", productosJason)
-
-//    usuarioEnLS = localStorage.getItem("compra");
-
-//    usuarioObjeto = JSON.parse(usuarioEnLS)
-
-//      console.log(usuarioObjeto)
-
-//      cambioNombre.innerHTML = usuarioEnLS;
-//  }
-
-// function perrito(nombre){
-
-//     return ("Hola " + nombre)
-// }
-// console.log(perrito("Lunita"))
-
-// function persona (nombre, apellido, edad){
-//     this.nombre = nombre;
-//     this.apellido = apellido;
-//     this.edad = edad;
-//     this.cumpleanio = this.edad + 1
-// }
-// persona1 = new persona ("Diego", "Cano", 42);
-// console.log(persona1);
-// console.log(persona1
-//     )
-// localStorage.setItem("persona", persona1)
-// const perrito = function(){}
-
-
-// const perrito = ()=>{}
-
-
-/*elegir el producto */
-
-// let productoElegido = prompt("Elija su producto ")
-// console.log(productos.find((producto)=>producto.nombre === productoElegido));
 
 
